@@ -33,8 +33,6 @@ func RegisterRoutes(e *echo.Echo) {
 		}
 	})
 
-	protected.Use()
-
 	protected.GET("/", func(c echo.Context) error {
 		return util.Render(c, http.StatusOK, pages.HomePage())
 	})
@@ -63,9 +61,12 @@ func RegisterRoutes(e *echo.Echo) {
 		return util.Render(c, http.StatusOK, pages.ImportForm())
 	})
 
+
 	e.GET("/import", func(c echo.Context) error {
 		return util.Render(c, http.StatusOK, pages.ImportForm())
 	})
+
+
 
 	e.GET("/register", func(c echo.Context) error {
 		return util.Render(c, http.StatusOK, pages.RegisterPage())
